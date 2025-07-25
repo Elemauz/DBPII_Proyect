@@ -1,6 +1,6 @@
 package com.example.dbpii_proyecto.navigation
 
-import com.example.dbpii_proyecto.R;
+import com.example.dbpii_proyecto.R
 
 sealed class AppScreens(
     val route: String,

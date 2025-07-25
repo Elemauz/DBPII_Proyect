@@ -1,12 +1,19 @@
 package com.example.dbpii_proyecto.navigation
+import com.example.dbpii_proyecto.R;
 
 import AboutUs
+import Inicio
+import Listar
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.*
+import com.example.dbpii_proyecto.FinanzasGlobal
 import com.example.dbpii_proyecto.Pantallas.*
+import com.example.dbpii_proyecto.ResumenFinanciero
+import com.example.dbpii_proyecto.TransaccionesGlobales
+import com.example.test7.ui.screens.Registrar
 
 @Composable
 fun AppNavigation(intentDestino: String?) {
@@ -53,16 +60,24 @@ fun AppNavigation(intentDestino: String?) {
             }
 
             composable(AppScreens.Inicio.route) {
-                Inicio(navController)
+                Inicio( FinanzasGlobal, navController)
             }
 
             composable(AppScreens.Registrar.route) {
-                Registrar(navController)
+                Registrar(FinanzasGlobal, navController)
             }
 
             composable(AppScreens.Listar.route) {
-                Listar(navController)
+                Listar(
+                    navController = navController,
+                    transacciones = TransaccionesGlobales.lista,
+                    onItemClick = { transaccion ->
+                        println("Transacción seleccionada: ${transaccion.titulo}")
+                    }
+                )
             }
+
+
 
             composable(AppScreens.AboutUs.route) {
                 AboutUs(navController)

@@ -15,7 +15,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // Capturamos el destino desde el intent si existe
         val intentDestino = intent?.getStringExtra("destino")
 
         setContent {
